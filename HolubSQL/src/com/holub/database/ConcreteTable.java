@@ -823,7 +823,8 @@ import com.holub.tools.ArrayIterator;
 			// fail if this operation fails.
 
 			Writer out = new FileWriter("people");
-			people.export(new CSVExporter(out));
+			// people.export(new CSVExporter(out));
+			people.export(new HTMLExporter(out));
 			out.close();
 
 			Reader in = new FileReader("people");
