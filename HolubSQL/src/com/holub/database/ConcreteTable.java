@@ -162,10 +162,10 @@ import com.holub.tools.ArrayIterator;
 
 	// ----------------------------------------------------------------------
 	public int insert(Map row) { // A map is considered to be "ordered," with the order defined
-									// as the order in which an iterator across a "view" returns
-									// values. My reading of this statement is that the iterator
-									// across the keySet() visits keys in the same order as the
-									// iterator across the values() visits the values.
+		// as the order in which an iterator across a "view" returns
+		// values. My reading of this statement is that the iterator
+		// across the keySet() visits keys in the same order as the
+		// iterator across the values() visits the values.
 
 		return insert(row.keySet(), row.values());
 	}
@@ -491,7 +491,7 @@ import com.holub.tools.ArrayIterator;
 		allIterators[level] = allTables[level].rows();
 
 		while (allIterators[level].advance()) { // If we haven't reached the tips of the branches yet,
-												// go down one more level.
+			// go down one more level.
 
 			if (level < allIterators.length - 1)
 				selectFromCartesianProduct(level + 1, where, requestedColumns, allTables, allIterators, resultTable);
@@ -804,16 +804,17 @@ import com.holub.tools.ArrayIterator;
 		}
 
 		public void testStore() throws IOException, ClassNotFoundException { // Flush the table to disk, then reread it.
-																				// Subsequent tests that use the
-																				// "people" table will
-																				// fail if this operation fails.
+			// Subsequent tests that use the
+			// "people" table will
+			// fail if this operation fails.
 
 			Writer out = new FileWriter("people");
 			people.export(new CSVExporter(out));
 			out.close();
 
 			Reader in = new FileReader("people");
-			people = new ConcreteTable(new CSVImporter(in));
+			// people = new ConcreteTable(new CSVImporter(in));
+			people = new ConcreteTable(new XMLImporter(in));
 			in.close();
 		}
 
