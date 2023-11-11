@@ -16,3 +16,10 @@ insert into name (last,first,addrId) VALUES('Holub','Allen',(10-10*1))
 select * from address, name where address.addrId = name.addrId
 
 select street from address, name where address.addrId = name.addrId
+
+
+create table users (username varchar(10), password varchar(10), \
+	primary key(username))
+
+insert into users values('Fred','Flintstone')
+insert into users values('Wilma','Flintstone')
