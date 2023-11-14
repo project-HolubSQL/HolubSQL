@@ -35,11 +35,16 @@ public class AuthServer {
 
       System.out.println("Parsing: " + test);
       Table result = theDatabase.execute(test);
+      // if (result != null)
+      // System.out.println(result.toString());
     }
 
     HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
     server.createContext("/", new RootHandler());
     server.createContext("/login", new LoginHandler(theDatabase));
+    server.createContext("/buy", new BuyHandler(theDatabase)); // 매수 핸들러
+    server.createContext("/sell", new SellHandler(theDatabase)); // 매도 핸들러
+
     server.setExecutor(null); // creates a default executor
     server.start();
   }
