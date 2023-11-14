@@ -2,7 +2,7 @@ package com.holub.app;
 
 public class CurrentPriceManager {
     private static CurrentPriceManager instance = new CurrentPriceManager();
-    private int currentPrice = 0;
+    private int currentPrice = 700;
 
     private CurrentPriceManager() {
     }

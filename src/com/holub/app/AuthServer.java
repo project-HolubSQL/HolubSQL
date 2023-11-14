@@ -42,8 +42,9 @@ public class AuthServer {
     HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
     server.createContext("/", new RootHandler());
     server.createContext("/login", new LoginHandler(theDatabase));
-    server.createContext("/buy", new BuyHandler(theDatabase)); // 매수 핸들러
-    server.createContext("/sell", new SellHandler(theDatabase)); // 매도 핸들러
+    server.createContext("/buy", new BuyHandler(theDatabase));
+    server.createContext("/sell", new SellHandler(theDatabase));
+    server.createContext("/price", new PriceDisplayHandler());
 
     server.setExecutor(null); // creates a default executor
     server.start();

@@ -28,12 +28,12 @@ insert into users values('Wilma','Flintstone')
 create table buys (id int, price int, quantity int, \
 	primary key(id))
 
-insert into buys values(0, 1000, 5)
+insert into buys values(0, 500, 5)
 select * from buys 
 
 create table sells (id int, price int, quantity int, \
 	primary key(id))
 
-insert into sells values(0, 500, 5)
+insert into sells values(0, 1000, 5)
 
 
