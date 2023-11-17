@@ -1,17 +1,32 @@
 package com.holub.app;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class PriceDisplayHandler implements HttpHandler {
+public class PriceDisplayHandler implements HttpHandler, PropertyChangeListener {
+
+    private volatile int currentPrice;
+
+    public PriceDisplayHandler() {
+        CurrentPriceManager.getInstance().addPropertyChangeListener(this);
+        this.currentPrice = CurrentPriceManager.getInstance().getCurrentPrice();
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if ("currentPrice".equals(evt.getPropertyName())) {
+            this.currentPrice = (Integer) evt.getNewValue();
+        }
+    }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         if ("GET".equals(exchange.getRequestMethod())) {
-            int currentPrice = CurrentPriceManager.getInstance().getCurrentPrice();
-            String response = "Current Price: " + currentPrice;
+            String response = "Current Price: " + this.currentPrice;
 
             exchange.sendResponseHeaders(200, response.length());
             OutputStream os = exchange.getResponseBody();

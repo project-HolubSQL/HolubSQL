@@ -63,17 +63,11 @@ public class BuyHandler implements HttpHandler {
         int res = matchWithSellOrders(price, quantity);
         try {
             if (res > 0) {
-
                 String insertQuery = String.format("INSERT INTO buys VALUES (%d, %d, %d)", ++id_count, price, res);
                 db.execute(insertQuery);
-                // Table result = db.execute("select * from buys");
-                // if (result != null)
-                // System.out.println(result.toString());
                 return false;
             }
-            // Table result = db.execute("select * from sells");
-            // if (result != null)
-            // System.out.println(result.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -88,9 +82,11 @@ public class BuyHandler implements HttpHandler {
         try {
             // 매수 가격보다 낮거나 같은 모든 매도 주문 찾기
             String selectQuery = String.format("SELECT * FROM sells WHERE price <= %d ORDER BY price ASC", price);
+
             // 매수 가격보다 낮거나 같은 모든 매도 주문 찾기
             Table sellTable = db.execute(selectQuery);
             Cursor sellOrders = sellTable.rows();
+
             // 매수 주문의 남은 수량을 추적
             int remainingQuantity = quantity;
 

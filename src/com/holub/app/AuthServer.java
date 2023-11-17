@@ -38,7 +38,7 @@ public class AuthServer {
       // if (result != null)
       // System.out.println(result.toString());
     }
-
+    CurrentPriceManager.getInstance().setCurrentPrice(700);
     HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
     server.createContext("/", new RootHandler());
     server.createContext("/login", new LoginHandler(theDatabase));
