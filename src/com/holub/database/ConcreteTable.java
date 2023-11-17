@@ -28,6 +28,8 @@ package com.holub.database;
 
 import java.io.*;
 import java.util.*;
+
+import com.holub.text.ParseFailure;
 import com.holub.tools.ArrayIterator;
 
 /**
@@ -78,15 +80,25 @@ import com.holub.tools.ArrayIterator;
 		this.columnNames = (String[]) columnNames.clone();
 	}
 
+	public LinkedList getRowSet() {
+		return rowSet;
+	}
+
 	public String[] getColumnNames() {
 		return columnNames;
+	}
+
+	@Override
+	public void accept(TableVisitor visitor) {
+		visitor.visit(this);
 	}
 
 	/**********************************************************************
 	 * Return the index of the named column. Throw an IndexOutOfBoundsException if
 	 * the column doesn't exist.
 	 */
-	private int indexOf(String columnName) {
+
+	public int indexOf(String columnName) {
 		for (int i = 0; i < columnNames.length; ++i)
 			if (columnNames[i].equals(columnName))
 				return i;
@@ -823,13 +835,15 @@ import com.holub.tools.ArrayIterator;
 			// fail if this operation fails.
 
 			Writer out = new FileWriter("people");
+			// TEST: HTMLExporter
 			// people.export(new CSVExporter(out));
-			people.export(new HTMLExporter(out));
+			// people.export(new HTMLExporter(out));
 			out.close();
 
 			Reader in = new FileReader("people");
+			// TEST: XMLImporter
 			// people = new ConcreteTable(new CSVImporter(in));
-			people = new ConcreteTable(new XMLImporter(in));
+			// people = new ConcreteTable(new XMLImporter(in));
 			in.close();
 		}
 
