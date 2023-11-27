@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.designpattern.holub.HTMLExporter.java&apos; to &apos;HTMLExporterTest.java&apos;&#x0A;- Original project: &apos;holub&apos;&#x0A;- Original element: &apos;com.designpattern.holub.HTMLExporter.java&apos;&#x0A;- Renamed element: &apos;com.designpattern.holub.HTMLExporterTest.java&apos;" description="Rename compilation unit &apos;HTMLExporter.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/test\/java=/gradle_scope=/test=/=/gradle_used_by_scope=/test=/=/test=/true=/&lt;com.designpattern.holub{HTMLExporter.java" name="HTMLExporterTest.java" references="false" stamp="1701084609961" version="1.0"/>
+</session>

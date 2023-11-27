@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="XMLImporterTests" project="holub" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.designpattern.holub.XMLImporterTests" time="0.006" displayname="XMLImporterTests" uniqueid="[engine:junit-jupiter]/[class:com.designpattern.holub.XMLImporterTests]">
+    <testcase name="testXMLImport" classname="com.designpattern.holub.XMLImporterTests" time="0.006" displayname="testXMLImport()" uniqueid="[engine:junit-jupiter]/[class:com.designpattern.holub.XMLImporterTests]/[method:testXMLImport()]">
+      <error>java.util.NoSuchElementException
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:970)
+	at com.designpattern.holub.XMLImporterTests.testXMLImport(XMLImporterTests.java:59)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

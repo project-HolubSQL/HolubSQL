@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="XMLImporterTests" project="holub" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.designpattern.holub.XMLImporterTests" time="0.001" displayname="XMLImporterTests" uniqueid="[engine:junit-jupiter]/[class:com.designpattern.holub.XMLImporterTests]">
+    <testcase name="testXMLImport" classname="com.designpattern.holub.XMLImporterTests" time="0.001" displayname="testXMLImport()" uniqueid="[engine:junit-jupiter]/[class:com.designpattern.holub.XMLImporterTests]/[method:testXMLImport()]"/>
+  </testsuite>
+</testrun>
